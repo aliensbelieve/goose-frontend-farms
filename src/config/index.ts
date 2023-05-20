@@ -7,6 +7,6 @@ BigNumber.config({
 
 export const CARROT_PER_SECOND = new BigNumber(1)
 export const SECONDS_PER_YEAR = new BigNumber(31540000)
-export const PLS_BLOCK_TIME = 12
+export const PLS_SECONDS_TIME = 1
 
 export const CARROT_POOL_PID = 1
