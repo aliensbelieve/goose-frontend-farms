@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import { Image, Heading } from '@pancakeswap-libs/uikit'
+import { Image, Heading, Text } from '@pancakeswap-libs/uikit'
 import { SECONDS_PER_YEAR, CARROT_PER_SECOND, CARROT_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
@@ -98,10 +98,14 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
             :
           TranslateString(320, 'Stake LP tokens to earn CARROT')
         }
+        <Text>Farms are open for staking.</Text>
+        <Text>$CARROT emissions begin at:</Text>
+        <Text>Sun May 21 2023 04:00:00 GMT+0000</Text>
+        <Text>Unix Timestamp: 1684641600</Text>
       </Heading>
-      <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}>
-        {TranslateString(10000, 'Deposit Fee will be used to buyback CARROT')}
-      </Heading>
+      {/* <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}> */}
+        {/* {TranslateString(10000, 'Deposit Fee will be used to buyback CARROT')} */}
+      {/* </Heading> */}
       <FarmTabButtons stakedOnly={stakedOnly} setStakedOnly={setStakedOnly}/>
       <div>
         <Divider />
