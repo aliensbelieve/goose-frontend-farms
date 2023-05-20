@@ -11,7 +11,7 @@ export interface Ifo {
   launchTime: string
   saleAmount: string
   raiseAmount: string
-  cakeToBurn: string
+  carrotToBurn: string
   projectSiteUrl: string
   currency: string
   currencyAddress: string
@@ -20,10 +20,10 @@ export interface Ifo {
 }
 
 export enum QuoteToken {
-  'BNB' = 'BNB',
-  'CAKE' = 'CAKE',
+  'PLS' = 'PLS',
+  'CARROT' = 'CARROT',
   'SYRUP' = 'SYRUP',
-  'BUSD' = 'BUSD',
+  'DAI' = 'DAI',
   'TWT' = 'TWT',
   'UST' = 'UST',
 }
@@ -31,12 +31,13 @@ export enum QuoteToken {
 export enum PoolCategory {
   'COMMUNITY' = 'Community',
   'CORE' = 'Core',
-  'BINANCE' = 'Binance', // Pools using native BNB behave differently than pools using a token
+  'BINANCE' = 'Binance', // Pools using native PLS behave differently than pools using a token
 }
 
 export interface Address {
   97?: string
   56: string
+  369?: string
 }
 
 export interface FarmConfig {

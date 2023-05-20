@@ -11,49 +11,49 @@ import BigNumber from 'bignumber.js'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
-// Pool 0, Cake / Cake is a different kind of contract (master chef)
-// BNB pools use the native BNB token (wrapping ? unwrapping is done at the contract level)
-const nonBnbPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.BNB)
-const bnbPools = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.BNB)
+// Pool 0, Carrot / Carrot is a different kind of contract (master chef)
+// PLS pools use the native PLS token (wrapping ? unwrapping is done at the contract level)
+const nonPlsPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.PLS)
+const plsPools = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.PLS)
 const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0)
 const web3 = getWeb3()
 const masterChefContract = new web3.eth.Contract((masterChefABI as unknown) as AbiItem, getMasterChefAddress())
 
 export const fetchPoolsAllowance = async (account) => {
-  const calls = nonBnbPools.map((p) => ({
+  const calls = nonPlsPools.map((p) => ({
     address: p.stakingTokenAddress,
     name: 'allowance',
     params: [account, p.contractAddress[CHAIN_ID]],
   }))
 
   const allowances = await multicall(erc20ABI, calls)
-  return nonBnbPools.reduce(
+  return nonPlsPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(allowances[index]).toJSON() }),
     {},
   )
 }
 
 export const fetchUserBalances = async (account) => {
-  // Non BNB pools
-  const calls = nonBnbPools.map((p) => ({
+  // Non PLS pools
+  const calls = nonPlsPools.map((p) => ({
     address: p.stakingTokenAddress,
     name: 'balanceOf',
     params: [account],
   }))
   const tokenBalancesRaw = await multicall(erc20ABI, calls)
-  const tokenBalances = nonBnbPools.reduce(
+  const tokenBalances = nonPlsPools.reduce(
     (acc, pool, index) => ({ ...acc, [pool.sousId]: new BigNumber(tokenBalancesRaw[index]).toJSON() }),
     {},
   )
 
-  // BNB pools
-  const bnbBalance = await web3.eth.getBalance(account)
-  const bnbBalances = bnbPools.reduce(
-    (acc, pool) => ({ ...acc, [pool.sousId]: new BigNumber(bnbBalance).toJSON() }),
+  // PLS pools
+  const plsBalance = await web3.eth.getBalance(account)
+  const plsBalances = plsPools.reduce(
+    (acc, pool) => ({ ...acc, [pool.sousId]: new BigNumber(plsBalance).toJSON() }),
     {},
   )
 
-  return { ...tokenBalances, ...bnbBalances }
+  return { ...tokenBalances, ...plsBalances }
 }
 
 export const fetchUserStakeBalances = async (account) => {
@@ -71,7 +71,7 @@ export const fetchUserStakeBalances = async (account) => {
     {},
   )
 
-  // Cake / Cake pool
+  // Carrot / Carrot pool
   const { amount: masterPoolAmount } = await masterChefContract.methods.userInfo('0', account).call()
 
   return { ...stakedBalances, 0: new BigNumber(masterPoolAmount).toJSON() }
@@ -92,8 +92,8 @@ export const fetchUserPendingRewards = async (account) => {
     {},
   )
 
-  // Cake / Cake pool
-  const pendingReward = await masterChefContract.methods.pendingEgg('0', account).call()
+  // Carrot / Carrot pool
+  const pendingReward = await masterChefContract.methods.pendingCarrot('0', account).call()
 
   return { ...pendingRewards, 0: new BigNumber(pendingReward).toJSON() }
 }

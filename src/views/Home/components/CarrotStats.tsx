@@ -5,11 +5,11 @@ import styled from 'styled-components'
 import { getBalanceNumber } from 'utils/formatBalance'
 import { useTotalSupply, useBurnedBalance } from 'hooks/useTokenBalance'
 import useI18n from 'hooks/useI18n'
-import { getCakeAddress } from 'utils/addressHelpers'
+import { getCarrotAddress } from 'utils/addressHelpers'
 import CardValue from './CardValue'
-import { useFarms, usePriceCakeBusd } from '../../../state/hooks'
+import { useFarms, usePriceCarrotDai } from '../../../state/hooks'
 
-const StyledCakeStats = styled(Card)`
+const StyledCarrotStats = styled(Card)`
   margin-left: auto;
   margin-right: auto;
 `
@@ -22,26 +22,26 @@ const Row = styled.div`
   margin-bottom: 8px;
 `
 
-const CakeStats = () => {
+const CarrotStats = () => {
   const TranslateString = useI18n()
   const totalSupply = useTotalSupply()
-  const burnedBalance = useBurnedBalance(getCakeAddress())
+  const burnedBalance = useBurnedBalance(getCarrotAddress())
   const farms = useFarms();
-  const eggPrice = usePriceCakeBusd();
+  const carrotPrice = usePriceCarrotDai();
   const circSupply = totalSupply ? totalSupply.minus(burnedBalance) : new BigNumber(0);
-  const cakeSupply = getBalanceNumber(circSupply);
-  const marketCap = eggPrice.times(circSupply);
+  const carrotSupply = getBalanceNumber(circSupply);
+  const marketCap = carrotPrice.times(circSupply);
 
-  let eggPerBlock = 0;
-  if(farms && farms[0] && farms[0].eggPerBlock){
-    eggPerBlock = new BigNumber(farms[0].eggPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+  let carrotPerBlock = 0;
+  if(farms && farms[0] && farms[0].carrotPerBlock){
+    carrotPerBlock = new BigNumber(farms[0].carrotPerBlock).div(new BigNumber(10).pow(18)).toNumber();
   }
 
   return (
-    <StyledCakeStats>
+    <StyledCarrotStats>
       <CardBody>
         <Heading size="xl" mb="24px">
-          {TranslateString(534, 'Egg Stats')}
+          {TranslateString(534, 'Carrot Stats')}
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
@@ -57,15 +57,15 @@ const CakeStats = () => {
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
-          {cakeSupply && <CardValue fontSize="14px" value={cakeSupply} decimals={0} />}
+          {circSupply && <CardValue fontSize="14px" value={getBalanceNumber(circSupply)} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New EGG/block')}</Text>
-          <Text bold fontSize="14px">{eggPerBlock}</Text>
+          <Text fontSize="14px">{TranslateString(540, 'New CARROT/block')}</Text>
+          <Text bold fontSize="14px">{carrotPerBlock}</Text>
         </Row>
       </CardBody>
-    </StyledCakeStats>
+    </StyledCarrotStats>
   )
 }
 
-export default CakeStats
+export default CarrotStats

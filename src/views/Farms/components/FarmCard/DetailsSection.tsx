@@ -7,7 +7,7 @@ import { Address } from 'config/constants/types'
 
 export interface ExpandableSectionProps {
   isTokenOnly?: boolean
-  bscScanAddress?: string
+  pulseScanAddress?: string
   removed?: boolean
   totalValueFormated?: string
   lpLabel?: string
@@ -37,7 +37,7 @@ const StyledLinkExternal = styled(LinkExternal)`
 
 const DetailsSection: React.FC<ExpandableSectionProps> = ({
   isTokenOnly,
-  bscScanAddress,
+  pulseScanAddress,
   removed,
   totalValueFormated,
   lpLabel,
@@ -54,9 +54,9 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         <Text>{TranslateString(316, 'Stake')}:</Text>
         <StyledLinkExternal href={
           isTokenOnly ?
-            `https://exchange.goosedefi.com/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
+            `https://exchange.bunnyswap.xyz/#/swap/${tokenAddresses[process.env.REACT_APP_CHAIN_ID]}`
             :
-          `https://exchange.goosedefi.com/#/add/${liquidityUrlPathParts}`
+          `https://exchange.bunnyswap.xyz/#/add/${liquidityUrlPathParts}`
         }>
           {lpLabel}
         </StyledLinkExternal>
@@ -68,8 +68,8 @@ const DetailsSection: React.FC<ExpandableSectionProps> = ({
         </Flex>
       )}
       <Flex justifyContent="flex-start">
-        <Link external href={bscScanAddress} bold={false}>
-          {TranslateString(356, 'View on BscScan')}
+        <Link external href={pulseScanAddress} bold={false}>
+          {TranslateString(356, 'View on PulseScan')}
         </Link>
       </Flex>
     </Wrapper>

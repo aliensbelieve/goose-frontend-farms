@@ -1,10 +1,10 @@
 import poolsConfig from 'config/constants/pools'
 import sousChefABI from 'config/abi/sousChef.json'
-import cakeABI from 'config/abi/cake.json'
-import wbnbABI from 'config/abi/weth.json'
+import carrotABI from 'config/abi/carrot.json'
+import wplsABI from 'config/abi/weth.json'
 import { QuoteToken } from 'config/constants/types'
 import multicall from 'utils/multicall'
-import { getWbnbAddress } from 'utils/addressHelpers'
+import { getWplsAddress } from 'utils/addressHelpers'
 import BigNumber from 'bignumber.js'
 
 const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
@@ -27,11 +27,11 @@ export const fetchPoolsBlockLimits = async () => {
   const starts = await multicall(sousChefABI, callsStartBlock)
   const ends = await multicall(sousChefABI, callsEndBlock)
 
-  return poolsWithEnd.map((cakePoolConfig, index) => {
+  return poolsWithEnd.map((carrotPoolConfig, index) => {
     const startBlock = starts[index]
     const endBlock = ends[index]
     return {
-      sousId: cakePoolConfig.sousId,
+      sousId: carrotPoolConfig.sousId,
       startBlock: new BigNumber(startBlock).toJSON(),
       endBlock: new BigNumber(endBlock).toJSON(),
     }
@@ -39,10 +39,10 @@ export const fetchPoolsBlockLimits = async () => {
 }
 
 export const fetchPoolsTotalStatking = async () => {
-  const nonBnbPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.BNB)
-  const bnbPool = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.BNB)
+  const nonPlsPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.PLS)
+  const plsPool = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.PLS)
 
-  const callsNonBnbPools = nonBnbPools.map((poolConfig) => {
+  const callsNonPlsPools = nonPlsPools.map((poolConfig) => {
     return {
       address: poolConfig.stakingTokenAddress,
       name: 'balanceOf',
@@ -50,25 +50,25 @@ export const fetchPoolsTotalStatking = async () => {
     }
   })
 
-  const callsBnbPools = bnbPool.map((poolConfig) => {
+  const callsPlsPools = plsPool.map((poolConfig) => {
     return {
-      address: getWbnbAddress(),
+      address: getWplsAddress(),
       name: 'balanceOf',
       params: [poolConfig.contractAddress[CHAIN_ID]],
     }
   })
 
-  const nonBnbPoolsTotalStaked = await multicall(cakeABI, callsNonBnbPools)
-  const bnbPoolsTotalStaked = await multicall(wbnbABI, callsBnbPools)
+  const nonPlsPoolsTotalStaked = await multicall(carrotABI, callsNonPlsPools)
+  const plsPoolsTotalStaked = await multicall(wplsABI, callsPlsPools)
 
   return [
-    ...nonBnbPools.map((p, index) => ({
+    ...nonPlsPools.map((p, index) => ({
       sousId: p.sousId,
-      totalStaked: new BigNumber(nonBnbPoolsTotalStaked[index]).toJSON(),
+      totalStaked: new BigNumber(nonPlsPoolsTotalStaked[index]).toJSON(),
     })),
-    ...bnbPool.map((p, index) => ({
+    ...plsPool.map((p, index) => ({
       sousId: p.sousId,
-      totalStaked: new BigNumber(bnbPoolsTotalStaked[index]).toJSON(),
+      totalStaked: new BigNumber(plsPoolsTotalStaked[index]).toJSON(),
     })),
   ]
 }

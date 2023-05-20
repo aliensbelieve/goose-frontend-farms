@@ -68,35 +68,35 @@ export const usePoolFromPid = (sousId): Pool => {
 
 // Prices
 
-export const usePriceBnbBusd = (): BigNumber => {
-  const pid = 2 // BUSD-BNB LP
+export const usePricePlsDai = (): BigNumber => {
+  const pid = 2 // DAI-PLS LP
   const farm = useFarmFromPid(pid)
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
-export const usePriceCakeBusd = (): BigNumber => {
-  // const pid = 1 // CAKE-BNB LP
-  // const bnbPriceUSD = usePriceBnbBusd()
+export const usePriceCarrotDai = (): BigNumber => {
+  // const pid = 1 // CARROT-PLS LP
+  // const plsPriceUSD = usePricePlsDai()
   // const farm = useFarmFromPid(pid)
-  // return farm.tokenPriceVsQuote ? bnbPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
-  const pid = 0; // EGG-BUSD LP
+  // return farm.tokenPriceVsQuote ? plsPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
+  const pid = 0; // CARROT-DAI LP
   const farm = useFarmFromPid(pid);
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
 export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
-  const bnbPrice = usePriceBnbBusd();
-  const cakePrice = usePriceCakeBusd();
+  const plsPrice = usePricePlsDai();
+  const carrotPrice = usePriceCarrotDai();
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
       let val;
-      if (farm.quoteTokenSymbol === QuoteToken.BNB) {
-        val = (bnbPrice.times(farm.lpTotalInQuoteToken));
-      }else if (farm.quoteTokenSymbol === QuoteToken.CAKE) {
-        val = (cakePrice.times(farm.lpTotalInQuoteToken));
+      if (farm.quoteTokenSymbol === QuoteToken.PLS) {
+        val = (plsPrice.times(farm.lpTotalInQuoteToken));
+      }else if (farm.quoteTokenSymbol === QuoteToken.CARROT) {
+        val = (carrotPrice.times(farm.lpTotalInQuoteToken));
       }else{
         val = (farm.lpTotalInQuoteToken);
       }

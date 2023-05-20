@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { AbiItem } from 'web3-utils'
 import { ContractOptions } from 'web3-eth-contract'
 import useWeb3 from 'hooks/useWeb3'
-import { getMasterChefAddress, getCakeAddress, getLotteryAddress, getLotteryTicketAddress } from 'utils/addressHelpers'
+import { getMasterChefAddress, getCarrotAddress, getLotteryAddress, getLotteryTicketAddress } from 'utils/addressHelpers'
 import { poolsConfig } from 'config/constants'
 import { PoolCategory } from 'config/constants/types'
 import ifo from 'config/abi/ifo.json'
@@ -13,7 +13,7 @@ import lottery from 'config/abi/lottery.json'
 import lotteryTicket from 'config/abi/lotteryNft.json'
 import masterChef from 'config/abi/masterchef.json'
 import sousChef from 'config/abi/sousChef.json'
-import sousChefBnb from 'config/abi/sousChefBnb.json'
+import sousChefPls from 'config/abi/sousChefPls.json'
 
 const useContract = (abi: AbiItem, address: string, contractOptions?: ContractOptions) => {
   const web3 = useWeb3()
@@ -40,8 +40,8 @@ export const useERC20 = (address: string) => {
   return useContract(erc20Abi, address)
 }
 
-export const useCake = () => {
-  return useERC20(getCakeAddress())
+export const useCarrot = () => {
+  return useERC20(getCarrotAddress())
 }
 
 export const useRabbitMintingFarm = (address: string) => {
@@ -71,7 +71,7 @@ export const useMasterchef = () => {
 
 export const useSousChef = (id) => {
   const config = poolsConfig.find((pool) => pool.sousId === id)
-  const rawAbi = config.poolCategory === PoolCategory.BINANCE ? sousChefBnb : sousChef
+  const rawAbi = config.poolCategory === PoolCategory.BINANCE ? sousChefPls : sousChef
   const abi = (rawAbi as unknown) as AbiItem
   return useContract(abi, config.contractAddress[process.env.REACT_APP_CHAIN_ID])
 }

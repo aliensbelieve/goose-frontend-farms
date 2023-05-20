@@ -7,16 +7,16 @@ import useI18n from 'hooks/useI18n'
 import { useAllHarvest } from 'hooks/useHarvest'
 import useFarmsWithBalance from 'hooks/useFarmsWithBalance'
 import UnlockButton from 'components/UnlockButton'
-import CakeHarvestBalance from './CakeHarvestBalance'
-import CakeWalletBalance from './CakeWalletBalance'
-import { usePriceCakeBusd } from '../../../state/hooks'
+import CarrotHarvestBalance from './CarrotHarvestBalance'
+import CarrotWalletBalance from './CarrotWalletBalance'
+import { usePriceCarrotDai } from '../../../state/hooks'
 import useTokenBalance from '../../../hooks/useTokenBalance'
-import { getCakeAddress } from '../../../utils/addressHelpers'
+import { getCarrotAddress } from '../../../utils/addressHelpers'
 import useAllEarnings from '../../../hooks/useAllEarnings'
 import { getBalanceNumber } from '../../../utils/formatBalance'
 
 const StyledFarmStakingCard = styled(Card)`
-  background-image: url('/images/egg/2a.png');
+  background-image: url('/images/carrot/2a.png');
   background-repeat: no-repeat;
   background-position: top right;
   min-height: 376px;
@@ -44,8 +44,8 @@ const FarmedStakingCard = () => {
   const { account } = useWallet()
   const TranslateString = useI18n()
   const farmsWithBalance = useFarmsWithBalance()
-  const cakeBalance = getBalanceNumber(useTokenBalance(getCakeAddress()))
-  const eggPrice = usePriceCakeBusd().toNumber()
+  const carrotBalance = getBalanceNumber(useTokenBalance(getCarrotAddress()))
+  const carrotPrice = usePriceCarrotDai().toNumber()
   const allEarnings = useAllEarnings()
   const earningsSum = allEarnings.reduce((accum, earning) => {
     return accum + new BigNumber(earning).div(new BigNumber(10).pow(18)).toNumber()
@@ -71,16 +71,16 @@ const FarmedStakingCard = () => {
         <Heading size="xl" mb="24px">
           {TranslateString(542, 'Farms & Staking')}
         </Heading>
-        <CardImage src="/images/egg/2.png" alt="cake logo" width={64} height={64} />
+        <CardImage src="/images/carrot/2.png" alt="carrot logo" width={64} height={64} />
         <Block>
-          <Label>{TranslateString(544, 'EGG to Harvest')}</Label>
-          <CakeHarvestBalance earningsSum={earningsSum}/>
-          <Label>~${(eggPrice * earningsSum).toFixed(2)}</Label>
+          <Label>{TranslateString(544, 'CARROT to Harvest')}</Label>
+          <CarrotHarvestBalance earningsSum={earningsSum}/>
+          <Label>~${(carrotPrice * earningsSum).toFixed(2)}</Label>
         </Block>
         <Block>
-          <Label>{TranslateString(546, 'EGG in Wallet')}</Label>
-          <CakeWalletBalance cakeBalance={cakeBalance} />
-          <Label>~${(eggPrice * cakeBalance).toFixed(2)}</Label>
+          <Label>{TranslateString(546, 'CARROT in Wallet')}</Label>
+          <CarrotWalletBalance carrotBalance={carrotBalance} />
+          <Label>~${(carrotPrice * carrotBalance).toFixed(2)}</Label>
         </Block>
         <Actions>
           {account ? (
@@ -91,7 +91,7 @@ const FarmedStakingCard = () => {
               fullWidth
             >
               {pendingTx
-                ? TranslateString(548, 'Collecting EGG')
+                ? TranslateString(548, 'Collecting CARROT')
                 : TranslateString(999, `Harvest all (${balancesWithValue.length})`)}
             </Button>
           ) : (
