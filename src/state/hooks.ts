@@ -71,6 +71,7 @@ export const usePoolFromPid = (sousId): Pool => {
 export const usePricePlsDai = (): BigNumber => {
   const pid = 2 // DAI-PLS LP
   const farm = useFarmFromPid(pid)
+  console.log("token price vs quote: ", farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote).toString() : ZERO.toString())
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO
 }
 
@@ -81,6 +82,7 @@ export const usePriceCarrotDai = (): BigNumber => {
   // return farm.tokenPriceVsQuote ? plsPriceUSD.times(farm.tokenPriceVsQuote) : ZERO
   const pid = 0; // CARROT-DAI LP
   const farm = useFarmFromPid(pid);
+  console.log("token price vs quote: ", farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote).toString() : ZERO.toString())
   return farm.tokenPriceVsQuote ? new BigNumber(farm.tokenPriceVsQuote) : ZERO;
 }
 
@@ -88,6 +90,8 @@ export const useTotalValue = (): BigNumber => {
   const farms = useFarms();
   const plsPrice = usePricePlsDai();
   const carrotPrice = usePriceCarrotDai();
+  console.log("Pls Price: ", plsPrice.toString());
+  console.log("Carrot Price: ", carrotPrice);
   let value = new BigNumber(0);
   for (let i = 0; i < farms.length; i++) {
     const farm = farms[i]

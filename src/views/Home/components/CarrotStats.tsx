@@ -32,9 +32,9 @@ const CarrotStats = () => {
   const carrotSupply = getBalanceNumber(circSupply);
   const marketCap = carrotPrice.times(circSupply);
 
-  let carrotPerBlock = 0;
-  if(farms && farms[0] && farms[0].carrotPerBlock){
-    carrotPerBlock = new BigNumber(farms[0].carrotPerBlock).div(new BigNumber(10).pow(18)).toNumber();
+  let carrotPerSecond = 0;
+  if(farms && farms[0] && farms[0].carrotPerSecond){
+    carrotPerSecond = new BigNumber(farms[0].carrotPerSecond).div(new BigNumber(10).pow(18)).toNumber();
   }
 
   return (
@@ -60,8 +60,8 @@ const CarrotStats = () => {
           {circSupply && <CardValue fontSize="14px" value={getBalanceNumber(circSupply)} decimals={0} />}
         </Row>
         <Row>
-          <Text fontSize="14px">{TranslateString(540, 'New CARROT/block')}</Text>
-          <Text bold fontSize="14px">{carrotPerBlock}</Text>
+          <Text fontSize="14px">{TranslateString(540, 'New CARROT/second')}</Text>
+          <Text bold fontSize="14px">{carrotPerSecond}</Text>
         </Row>
       </CardBody>
     </StyledCarrotStats>

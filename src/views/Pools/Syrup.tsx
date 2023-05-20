@@ -4,7 +4,7 @@ import BigNumber from 'bignumber.js'
 import styled from 'styled-components'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { Heading } from '@pancakeswap-libs/uikit'
-import { BLOCKS_PER_YEAR } from 'config'
+import { SECONDS_PER_YEAR } from 'config'
 import orderBy from 'lodash/orderBy'
 import partition from 'lodash/partition'
 import useI18n from 'hooks/useI18n'
@@ -52,7 +52,7 @@ const Farm: React.FC = () => {
       rewardTokenFarm?.quoteTokenSymbol,
     )
 
-    const totalRewardPricePerYear = rewardTokenPriceInPLS.times(pool.tokenPerBlock).times(BLOCKS_PER_YEAR)
+    const totalRewardPricePerYear = rewardTokenPriceInPLS.times(pool.tokenPerBlock).times(SECONDS_PER_YEAR)
     const totalStakingTokenInPool = stakingTokenPriceInPLS.times(getBalanceNumber(pool.totalStaked))
     const apy = totalRewardPricePerYear.div(totalStakingTokenInPool).times(100)
 

@@ -5,7 +5,7 @@ import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
 import { Image, Heading } from '@pancakeswap-libs/uikit'
-import { BLOCKS_PER_YEAR, CARROT_PER_BLOCK, CARROT_POOL_PID } from 'config'
+import { SECONDS_PER_YEAR, CARROT_PER_SECOND, CARROT_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
 import { useFarms, usePricePlsDai, usePriceCarrotDai } from 'state/hooks'
@@ -57,8 +57,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const carrotRewardPerBlock = new BigNumber(farm.carrotPerBlock || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        const carrotRewardPerYear = carrotRewardPerBlock.times(BLOCKS_PER_YEAR)
+        const carrotRewardPerBlock = new BigNumber(farm.carrotPerSecond || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        const carrotRewardPerYear = carrotRewardPerBlock.times(SECONDS_PER_YEAR)
 
         let apy = carrotPrice.times(carrotRewardPerYear);
 
