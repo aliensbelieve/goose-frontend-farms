@@ -64,9 +64,11 @@ const Home: React.FC = () => {
         </Heading>
         {/* <Text>{TranslateString(578, 'A positively wonderful yield farming experience on PulseChain')}</Text> */}
         <Text>Exchange is live for swapping and adding liquidity.</Text>
-        <Text>Farms are open for staking, and emissions will begin on:</Text>
-        <Text>Sun May 21 2023 4:00:00 AM UTC</Text>
-        <Text>Unix Timestamp: 1684641600</Text>
+        <Text>Farms are open for staking.</Text>
+        <Text>$CARROT emissions begin:</Text>
+        <Text>After the presale ends and liquidity is added (within next day or two).</Text>
+        <Text>Apologies for the delay, we&apos;ll get going soon!</Text>
+        <Text>Please stay tuned to Twitter and Telegram for updates.</Text>
       </Hero>
       <div>
         <Cards>

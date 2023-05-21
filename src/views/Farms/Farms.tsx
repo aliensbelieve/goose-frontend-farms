@@ -99,9 +99,10 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           TranslateString(320, 'Stake LP tokens to earn CARROT')
         }
         <Text>Farms are open for staking.</Text>
-        <Text>$CARROT emissions begin at:</Text>
-        <Text>Sun May 21 2023 04:00:00 GMT+0000</Text>
-        <Text>Unix Timestamp: 1684641600</Text>
+        <Text>$CARROT emissions begin:</Text>
+        <Text>After the presale ends and liquidity is added (within next day or two).</Text>
+        <Text>Apologies for the delay, we&apos;ll get going soon!</Text>
+        <Text>Please stay tuned to Twitter and Telegram for updates.</Text>
       </Heading>
       {/* <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}> */}
         {/* {TranslateString(10000, 'Deposit Fee will be used to buyback CARROT')} */}
