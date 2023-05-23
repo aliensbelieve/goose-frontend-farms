@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import BigNumber from 'bignumber.js'
 import { useWallet } from '@binance-chain/bsc-use-wallet'
 import { provider } from 'web3-core'
-import { Image, Heading, Text, Link } from '@pancakeswap-libs/uikit'
+import { Image, Heading, Text, Link, Flex } from '@pancakeswap-libs/uikit'
 import { SECONDS_PER_YEAR, CARROT_PER_SECOND, CARROT_POOL_PID } from 'config'
 import FlexLayout from 'components/layout/Flex'
 import Page from 'components/layout/Page'
@@ -101,7 +101,11 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         <Text>Farms are open for staking.</Text>
         <Text>$CARROT emissions begin:</Text>
         <Text>Immediately after the presale concludes at ~1:30 AM UTC 5/24/2023</Text>
-        <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A"><Text>Countdown to Emissions Start</Text></Link>
+        <Flex justifyContent="center">
+        <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A">
+          <Text>Countdown to Emissions Start</Text>
+        </Link>
+        </Flex>        
       </Heading>
       {/* <Heading as="h2" color="secondary" mb="50px" style={{ textAlign: 'center' }}> */}
         {/* {TranslateString(10000, 'Deposit Fee will be used to buyback CARROT')} */}
