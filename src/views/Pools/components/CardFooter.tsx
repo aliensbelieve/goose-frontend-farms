@@ -17,7 +17,7 @@ const tags = {
 interface Props {
   projectLink: string
   totalStaked: BigNumber
-  blocksRemaining: number
+  timeRemaining: number
   isFinished: boolean
   blocksUntilStart: number
   poolCategory: PoolCategory
@@ -75,7 +75,7 @@ const TokenLink = styled.a`
 const CardFooter: React.FC<Props> = ({
   projectLink,
   totalStaked,
-  blocksRemaining,
+  timeRemaining,
   isFinished,
   blocksUntilStart,
   poolCategory,
@@ -118,12 +118,12 @@ const CardFooter: React.FC<Props> = ({
               <Balance fontSize="14px" isDisabled={isFinished} value={blocksUntilStart} decimals={0} />
             </Row>
           )}
-          {blocksUntilStart === 0 && blocksRemaining > 0 && (
+          {blocksUntilStart === 0 && timeRemaining > 0 && (
             <Row>
               <FlexFull>
                 <Label>{TranslateString(410, 'End')}:</Label>
               </FlexFull>
-              <Balance fontSize="14px" isDisabled={isFinished} value={blocksRemaining} decimals={0} />
+              <Balance fontSize="14px" isDisabled={isFinished} value={timeRemaining} decimals={0} />
             </Row>
           )}
           <TokenLink href={projectLink} target="_blank">

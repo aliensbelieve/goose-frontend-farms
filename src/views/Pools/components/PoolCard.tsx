@@ -72,7 +72,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
   const earnings = new BigNumber(userData?.pendingReward || 0)
 
   const blocksUntilStart = Math.max(startBlock - block, 0)
-  const blocksRemaining = Math.max(endBlock - block, 0)
+  const timeRemaining = Math.max(endBlock - block, 0)
   const isOldSyrup = stakingTokenName === QuoteToken.SYRUP
   const accountHasStakedBalance = stakedBalance?.toNumber() > 0
   const needsApproval = !accountHasStakedBalance && !allowance.toNumber() && !isPlsPool
@@ -201,7 +201,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
       <CardFooter
         projectLink={projectLink}
         totalStaked={totalStaked}
-        blocksRemaining={blocksRemaining}
+        timeRemaining={timeRemaining}
         isFinished={isFinished}
         blocksUntilStart={blocksUntilStart}
         poolCategory={poolCategory}

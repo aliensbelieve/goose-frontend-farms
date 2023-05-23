@@ -48,53 +48,31 @@ const Ifo = () => {
           <Title as="h2">{TranslateString(592, 'How to take part')}</Title>
           <Heading mb="16px">{TranslateString(594, 'Before Sale')}:</Heading>
           <List>
-            <li>{TranslateString(596, 'Buy CARROT and PLS tokens')}</li>
-            <li>{TranslateString(598, 'Get CARROT-PLS LP tokens by adding CARROT and PLS liquidity')}</li>
+            <li>{TranslateString(596, 'Get some WPLS tokens from any exchange (such as PulseX')}</li>
+            <li>{TranslateString(999999999999, 'Use the WPLS tokens to purchase an allocation of the $CARROT tokens!')}</li>
           </List>
           <Flex mb="16px">
-            <LinkExternal href="https://exchange.bunnyswap.xyz/#/swap" mr="16px">
-              {TranslateString(999, 'Buy carrot')}
-            </LinkExternal>
-            <LinkExternal href="https://exchange.bunnyswap.xyz/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82">
-              {TranslateString(999, 'Get LP tokens')}
-            </LinkExternal>
+            <LinkExternal href="https://app.pulsex.com/swap" mr="16px">
+              {TranslateString(999, 'Buy WPLS from PulseX')}
+            </LinkExternal>            
           </Flex>
           <Heading mb="16px">{TranslateString(600, 'During Sale')}:</Heading>
           <List>
-            <li>{TranslateString(602, 'While the sale is live, commit your CARROT-LP tokens to buy the IFO tokens')}</li>
+            <li>{TranslateString(999999999999, 'While the sale is live, commit your WPLS tokens to buy the CARROT tokens')}</li>
           </List>
           <Heading mb="16px">{TranslateString(604, 'After Sale')}:</Heading>
           <List>
-            <li>{TranslateString(606, 'Claim the tokens you bought, along with any unspent funds.')}</li>
-            <li>{TranslateString(608, 'Done!')}</li>
+            <li>{TranslateString(9999999999999, 'Claim the tokens you bought, along with any unspent funds.')}</li>
+            <li>{TranslateString(9999999999999, 'ALL funds will be used to add initial CARROT liquidity for farming.')}</li>
+            <li>{TranslateString(608, 'Done!  Stay tuned to Telegram and Twitter for updates!')}</li>
           </List>
-          <Text as="div" pt="16px">
-            <Button
-              as="a"
-              variant="secondary"
-              href="https://docs.bunnyswap.xyz/core-products/ifo-initial-farm-offering"
-            >
-              {TranslateString(610, 'Read more')}
-            </Button>
-          </Text>
+          <Text as="div" pt="16px"/>
         </div>
         <div>
-          <Image src="/images/ifo-bunny.svg" alt="ifo bunny" width={436} height={406} responsive />
+          <Image src="/images/ifo-bunny.png" alt="ifo bunny" width={436} height={406} responsive />
           <div>
-            <Title as="h2">{TranslateString(512, 'Want to launch your own IFO?')}</Title>
-            <Text mb={3}>
-              {TranslateString(
-                514,
-                'Launch your project with PancakeSwap, PulseChain’s most-used AMM project and liquidity provider, to bring your token directly to the most active and rapidly growing community on PLS.',
-              )}
-            </Text>
-            <Button
-              as="a"
-              href="https://docs.google.com/forms/d/e/1FAIpQLScGdT5rrVMr4WOWr08pvcroSeuIOtEJf1sVdQGVdcAOqryigQ/viewform"
-              external
-            >
-              {TranslateString(516, 'Apply to launch')}
-            </Button>
+            <Title as="h2"/>
+            <Text mb={3}/>
           </div>
         </div>
       </LaunchIfoCallout>

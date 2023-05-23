@@ -32,27 +32,43 @@ const IfoCardContribute: React.FC<Props> = ({
 }) => {
   const [pendingTx, setPendingTx] = useState(false)
   const [offeringTokenBalance, setOfferingTokenBalance] = useState(new BigNumber(0))
-  const [userInfo, setUserInfo] = useState({ amount: 0, claimed: false })
+  const [userInfo, setUserInfo] = useState<{ amountPools: number; statusPools: boolean }>({
+    amountPools: 0,
+    statusPools: false,
+  })
 
   const { account } = useWallet()
   const contractRaisingToken = useERC20(currencyAddress)
   const allowance = useIfoAllowance(contractRaisingToken, address, pendingTx)
   const onApprove = useIfoApprove(contractRaisingToken, address)
   const [onPresentContributeModal] = useModal(
-    <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />,
+    <ContributeModal currency={currency} contract={contract} currencyAddress={currencyAddress} />
   )
 
   useEffect(() => {
-    const fetch = async () => {
-      const balance = new BigNumber(await contract.methods.getOfferingAmount(account).call())
-      const userinfo = await contract.methods.userInfo(account).call()
+    const fetchData = async () => {
+      const userOfferingAndRefundAmounts = await contract.methods.viewUserOfferingAndRefundingAmountsForPools(
+        account,
+        [0]
+      ).call()
+      const balancePaymentToken = new BigNumber(userOfferingAndRefundAmounts[0])
+      const userInformationResponse: [number[], boolean[]] = await contract.methods.viewUserInfo(account, [0]).call()
 
-      setUserInfo(userinfo)
-      setOfferingTokenBalance(balance)
+      const amountPools = userInformationResponse[0]
+      const statusPools = userInformationResponse[1]
+
+      if (amountPools.length > 0 && statusPools.length > 0) {
+        const userInformation = {
+          amountPools: amountPools[0],
+          statusPools: statusPools[0],
+        }
+        setUserInfo(userInformation)
+      }
+      setOfferingTokenBalance(balancePaymentToken)
     }
 
     if (account) {
-      fetch()
+      fetchData()
     }
   }, [account, contract.methods, pendingTx])
 
@@ -66,7 +82,8 @@ const IfoCardContribute: React.FC<Props> = ({
     setPendingTx(false)
   }
   const isFinished = status === 'finished'
-  const percentOfUserContribution = new BigNumber(userInfo.amount).div(raisingAmount).times(100)
+  const percentOfUserContribution = (userInfo.amountPools / 125000000000000000000000000) * 100;
+  
 
   if (allowance <= 0) {
     return (
@@ -92,16 +109,16 @@ const IfoCardContribute: React.FC<Props> = ({
   return (
     <>
       <LabelButton
-        disabled={pendingTx || userInfo.claimed}
+        disabled={pendingTx || userInfo.statusPools}
         buttonLabel={isFinished ? 'Claim' : 'Contribute'}
         label={isFinished ? 'Your tokens to claim' : `Your contribution (${currency})`}
         value={
           // eslint-disable-next-line no-nested-ternary
           isFinished
-            ? userInfo.claimed
+            ? userInfo.statusPools
               ? 'Claimed'
               : getBalanceNumber(offeringTokenBalance, tokenDecimals).toFixed(4)
-            : getBalanceNumber(new BigNumber(userInfo.amount)).toFixed(4)
+            : getBalanceNumber(new BigNumber(userInfo.amountPools)).toFixed(4)
         }
         onClick={isFinished ? claim : onPresentContributeModal}
       />

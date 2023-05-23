@@ -10,7 +10,7 @@ export interface IfoCardTimeProps {
   status: IfoStatus
   secondsUntilStart: number
   secondsUntilEnd: number
-  block: number
+  time: number
 }
 
 const Details = styled.div`
@@ -28,7 +28,7 @@ const Countdown = styled.div`
   text-align: center;
 `
 
-const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUntilStart, secondsUntilEnd, block }) => {
+const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUntilStart, secondsUntilEnd, time }) => {
   const TranslateString = useI18n()
   const countdownToUse = status === 'coming_soon' ? secondsUntilStart : secondsUntilEnd
   const timeUntil = getTimePeriods(countdownToUse)
@@ -49,9 +49,6 @@ const IfoCardTime: React.FC<IfoCardTimeProps> = ({ isLoading, status, secondsUnt
   return (
     <Details>
       <Countdown>{`${timeUntil.days}d, ${timeUntil.hours}h, ${timeUntil.minutes}m until ${suffix}`}</Countdown>
-      <Link href={`https://scan.pulsechain.com/block/countdown/${block}`} target="blank" rel="noopener noreferrer" ml="8px">
-        (blocks)
-      </Link>
     </Details>
   )
 }

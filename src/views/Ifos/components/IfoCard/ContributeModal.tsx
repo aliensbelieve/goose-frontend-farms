@@ -38,7 +38,7 @@ const ContributeModal: React.FC<Props> = ({ currency, contract, currencyAddress,
           onClick={async () => {
             setPendingTx(true)
             await contract.methods
-              .deposit(new BigNumber(value).times(new BigNumber(10).pow(18)).toString())
+              .depositPool(new BigNumber(value).times(new BigNumber(10).pow(18)).toString(), 0)
               .send({ from: account })
             setPendingTx(false)
             onDismiss()
@@ -48,7 +48,7 @@ const ContributeModal: React.FC<Props> = ({ currency, contract, currencyAddress,
         </Button>
       </Flex>
       <LinkExternal
-        href="https://exchange.bunnyswap.xyz/#/add/ETH/0x0E09FaBB73Bd3Ade0a17ECC321fD13a19e81cE82"
+        href="https://app.pulsex.com"
         style={{ margin: 'auto' }}
       >
         {`Get ${currency}`}

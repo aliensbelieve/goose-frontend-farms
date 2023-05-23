@@ -41,6 +41,8 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
 }) => {
   const TranslateString = useI18n()
 
+  const raisedPercentage = (parseInt(totalAmount.toString()) / 125000000000000000000000000) * 100;
+
   return (
     <>
       <StyledIfoCardDetails>
@@ -64,16 +66,16 @@ const IfoCardDetails: React.FC<IfoCardDetailsProps> = ({
           <Text>{saleAmount}</Text>
         </Item>
         <Item>
-          <Display>{TranslateString(999, 'To raise (USD)')}</Display>
+          <Display>{TranslateString(999, 'To raise (WPLS)')}</Display>
           <Text>{raiseAmount}</Text>
         </Item>
         <Item>
-          <Display>{TranslateString(586, 'CARROT to burn (USD)')}</Display>
-          <Text>{carrotToBurn}</Text>
+          <Display><Text>% of Raised Funds for Liquidity</Text></Display>
+          <Text>100%</Text>
         </Item>
         <Item>
           <Display>{TranslateString(999, 'Total raised (% of target)')}</Display>
-          <Text>{`${totalAmount.div(raisingAmount).times(100).toFixed(2)}%`}</Text>
+          <Text>{`${raisedPercentage.toFixed(5)}%`}</Text>
         </Item>
       </StyledIfoCardDetails>
       <LinkExternal href={projectSiteUrl} style={{ margin: 'auto' }}>
