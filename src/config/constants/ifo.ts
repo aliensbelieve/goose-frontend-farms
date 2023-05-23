@@ -12,7 +12,7 @@ const ifos: Ifo[] = [
     launchDate: 'May 22',
     launchTime: '01:30:00 UTC',
     saleAmount: '50,000 CARROT',
-    raiseAmount: '~$50,000 USD / 150,000,000 WPLS',
+    raiseAmount: '~$25,000 USD / 150,000,000 WPLS',
     carrotToBurn: '0',
     projectSiteUrl: 'https://bunnyswap.xyz',
     currency: 'WPLS',
