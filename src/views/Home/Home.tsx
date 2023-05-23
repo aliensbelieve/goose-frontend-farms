@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout } from '@pancakeswap-libs/uikit'
+import { Heading, Text, BaseLayout, Link } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from './components/FarmStakingCard'
@@ -66,9 +66,8 @@ const Home: React.FC = () => {
         <Text>Exchange is live for swapping and adding liquidity.</Text>
         <Text>Farms are open for staking.</Text>
         <Text>$CARROT emissions begin:</Text>
-        <Text>After the presale ends and liquidity is added (within next day or two).</Text>
-        <Text>Apologies for the delay, we&apos;ll get going soon!</Text>
-        <Text>Please stay tuned to Twitter and Telegram for updates.</Text>
+        <Text>Immediately after the presale concludes at ~1:30 AM UTC 5/24/2023</Text>
+        <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A"><Text>Countdown to Emissions Start</Text></Link>
       </Hero>
       <div>
         <Cards>
