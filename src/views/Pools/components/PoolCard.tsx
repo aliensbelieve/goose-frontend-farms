@@ -133,7 +133,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
         </div>
         {!isOldSyrup ? (
           <BalanceAndCompound>
-            <Balance value={getBalanceNumber(earnings, tokenDecimals)} isDisabled={isFinished} />
+            <Balance value={parseFloat(getBalanceNumber(earnings, tokenDecimals))} isDisabled={isFinished} />
             {sousId === 0 && account && harvest && (
               <HarvestButton
                 disabled={!earnings.toNumber() || pendingTx}
@@ -195,7 +195,7 @@ const PoolCard: React.FC<HarvestProps> = ({ pool }) => {
             </span>
             {TranslateString(384, 'Your Stake')}:
           </div>
-          <Balance fontSize="14px" isDisabled={isFinished} value={getBalanceNumber(stakedBalance)} />
+          <Balance fontSize="14px" isDisabled={isFinished} value={parseFloat(getBalanceNumber(stakedBalance))} />
         </StyledDetails>
       </div>
       <CardFooter

@@ -63,7 +63,7 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
   }
 
   useEffect(() => {
-    if (carrotInWallet === 0) {
+    if (parseFloat(carrotInWallet) === 0) {
       setError('You must have a CARROT balance greater than zero to claim NFT')
     }
   }, [carrotInWallet, setError])
@@ -85,7 +85,7 @@ const ClaimNftModal: React.FC<ClaimNftModalProps> = ({ nft, onSuccess, onDismiss
         <Button fullWidth variant="secondary" onClick={onDismiss}>
           {TranslateString(462, 'Cancel')}
         </Button>
-        <Button fullWidth onClick={handleConfirm} disabled={!account || isLoading || carrotInWallet <= 0}>
+        <Button fullWidth onClick={handleConfirm} disabled={!account || isLoading}>
           {TranslateString(464, 'Confirm')}
         </Button>
       </Actions>

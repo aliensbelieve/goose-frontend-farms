@@ -5,7 +5,7 @@ import CardValue from './CardValue'
 
 const CarrotWinnings = () => {
   const { claimAmount } = useTotalClaim()
-  return <CardValue value={getBalanceNumber(claimAmount)} />
+  return <CardValue value={parseFloat(getBalanceNumber(claimAmount))} />
 }
 
 export default CarrotWinnings

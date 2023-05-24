@@ -117,8 +117,8 @@ const IfoCardContribute: React.FC<Props> = ({
           isFinished
             ? userInfo.statusPools
               ? 'Claimed'
-              : getBalanceNumber(offeringTokenBalance, tokenDecimals).toFixed(4)
-            : getBalanceNumber(new BigNumber(userInfo.amountPools)).toFixed(4)
+              : parseFloat(getBalanceNumber(offeringTokenBalance, tokenDecimals)).toFixed(4)
+            : parseFloat(getBalanceNumber(new BigNumber(userInfo.amountPools))).toFixed(4)
         }
         onClick={isFinished ? claim : onPresentContributeModal}
       />

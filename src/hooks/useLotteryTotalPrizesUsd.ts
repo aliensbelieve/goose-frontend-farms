@@ -7,7 +7,7 @@ const useLotteryTotalPrizesUsd = () => {
   const totalCarrot = getBalanceNumber(totalRewards)
   const carrotPriceDai = usePriceCarrotDai()
 
-  return totalCarrot * carrotPriceDai.toNumber()
+  return parseFloat(totalCarrot) * carrotPriceDai.toNumber()
 }
 
 export default useLotteryTotalPrizesUsd

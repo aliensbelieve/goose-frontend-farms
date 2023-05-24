@@ -41,7 +41,7 @@ const NextDrawPage: React.FC = () => {
   const { account } = useWallet()
   const { claimAmount } = useTotalClaim()
   const winnings = getBalanceNumber(claimAmount)
-  const isAWin = winnings > 0
+  // const isAWin = winnings > 0
 
   return (
     <>
@@ -49,16 +49,16 @@ const NextDrawPage: React.FC = () => {
         <div>
           <TotalPrizesCard />
         </div>
-        <SecondCardColumnWrapper isAWin={isAWin}>
+        {/* <SecondCardColumnWrapper isAWin={isAWin}> */}
           {!account ? (
             <UnlockWalletCard />
           ) : (
             <>
               <YourPrizesCard />
-              <TicketCard isSecondCard={isAWin} />
+              {/* <TicketCard isSecondCard={isAWin} /> */}
             </>
           )}
-        </SecondCardColumnWrapper>
+        {/* </SecondCardColumnWrapper> */}
       </Cards>
       <HowItWorks />
       {/* legacy page content */}

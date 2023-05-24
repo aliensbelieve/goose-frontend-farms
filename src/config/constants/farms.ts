@@ -56,24 +56,137 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.DAI,
     quoteTokenAdresses: contracts.dai,
   },
-  // {
-  //   pid: 3,
-  //   risk: 1,
-  //   lpSymbol: 'USDT-DAI LP',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0xc15fa3e22c912a276550f3e5fe3b0deb87b55acd',
-  //     369: ''
-  //   },
-  //   tokenSymbol: 'USDT',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0x55d398326f99059ff775485246999027b3197955',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.DAI,
-  //   quoteTokenAdresses: contracts.dai,
-  // },
+  {
+    pid: 3,
+    risk: 4,
+    lpSymbol: 'CARROT-ETH LP',
+    lpAddresses: {
+      97: '',
+      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
+      369: '0xD74e91D2249e766190A9412F3B2071480d39aB5e'
+    },
+    tokenSymbol: 'ETH',
+    tokenAddresses: {
+      97: '',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+      369: '0x02DcdD04e3F455D838cd1249292C58f3B79e3C3C'
+    },
+    quoteTokenSymbol: QuoteToken.CARROT,
+    quoteTokenAdresses: contracts.carrot,
+  },
+  {
+    pid: 4,
+    risk: 4,
+    lpSymbol: 'CARROT-USDC LP',
+    lpAddresses: {
+      97: '',
+      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
+      369: '0x26b6AF6B674271247bBdCAAd985bdAdF1a5AffcD'
+    },
+    tokenSymbol: 'USDC',
+    tokenAddresses: {
+      97: '',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+      369: '0x15D38573d2feeb82e7ad5187aB8c1D52810B1f07'
+    },
+    quoteTokenSymbol: QuoteToken.CARROT,
+    quoteTokenAdresses: contracts.carrot,
+  },
+  {
+    pid: 5,
+    risk: 4,
+    lpSymbol: 'CARROT-USDT LP',
+    lpAddresses: {
+      97: '',
+      56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
+      369: '0x0dEceA26CA7dd0e9FBb5Da1CF0DB3B161dEc1fd4'
+    },
+    tokenSymbol: 'USDT',
+    tokenAddresses: {
+      97: '',
+      56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
+      369: '0x0Cb6F5a34ad42ec934882A05265A7d5F59b51A2f'
+    },
+    quoteTokenSymbol: QuoteToken.CARROT,
+    quoteTokenAdresses: contracts.carrot,
+  },
+  
+  
+
+   {
+    pid: 6,
+    risk: 4,
+    lpSymbol: 'ETH-DAI LP',
+    lpAddresses: {
+      97: '',
+      56: '0x0ed8e0a2d99643e1e65cca22ed4424090b8b7458',
+      369: '0x4A0d02428C3502d6Ba2F8F421b35438470fF7d5b'
+    },
+    tokenSymbol: 'ETH',
+    tokenAddresses: {
+      97: '',
+      56: '0x02DcdD04e3F455D838cd1249292C58f3B79e3C3C',
+      369: '0x02DcdD04e3F455D838cd1249292C58f3B79e3C3C'
+    },
+    quoteTokenSymbol: QuoteToken.DAI,
+    quoteTokenAdresses: contracts.dai,
+  },
+  {
+    pid: 7,
+    risk: 1,
+    lpSymbol: 'USDT-DAI LP',
+    lpAddresses: {
+      97: '',
+      56: '0xc15fa3e22c912a276550f3e5fe3b0deb87b55acd',
+      369: '0x6c4Ec723e23B235613Fb30d3EEAC9B2d47D5C8f8'
+    },
+    tokenSymbol: 'USDT',
+    tokenAddresses: {
+      97: '',
+      56: '0x55d398326f99059ff775485246999027b3197955',
+      369: '0x0Cb6F5a34ad42ec934882A05265A7d5F59b51A2f'
+    },
+    quoteTokenSymbol: QuoteToken.DAI,
+    quoteTokenAdresses: contracts.dai,
+  },
+  {
+    pid: 8,
+    risk: 1,
+    lpSymbol: 'USDC-DAI LP',
+    lpAddresses: {
+      97: '',
+      56: '0x680dd100e4b394bda26a59dd5c119a391e747d18',
+      369: '0x9B29b714917178227Ce6eE774CFf47D012860f11'
+    },
+    tokenSymbol: 'USDC',
+    tokenAddresses: {
+      97: '',
+      56: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
+      369: '0x15D38573d2feeb82e7ad5187aB8c1D52810B1f07'
+    },
+    quoteTokenSymbol: QuoteToken.DAI,
+    quoteTokenAdresses: contracts.dai,
+  },
+
+   {
+    pid: 9,
+    risk: 5,
+    isTokenOnly: true,
+    lpSymbol: 'CARROT',
+    lpAddresses: {
+      97: '',
+      56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
+      369: '0x9Cdee06ab35C0b283Fa47230C94007AadB3A552b' // CARROT-DAI LP
+    },
+    tokenSymbol: 'CARROT',
+    tokenAddresses: {
+      97: '',
+      56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',
+      369: '0x1F0FF02C26EF3f02E77C2F446405a089C40E5E6c'
+    },
+    quoteTokenSymbol: QuoteToken.DAI,
+    quoteTokenAdresses: contracts.dai,
+  },
   // {
   //   pid: 4,
   //   risk: 2,
@@ -92,24 +205,7 @@ const farms: FarmConfig[] = [
   //   quoteTokenSymbol: QuoteToken.PLS,
   //   quoteTokenAdresses: contracts.wpls,
   // },
-  // {
-  //   pid: 5,
-  //   risk: 2,
-  //   lpSymbol: 'ETH-PLS LP',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x70d8929d04b60af4fb9b58713ebcf18765ade422',
-  //     369: ''
-  //   },
-  //   tokenSymbol: 'ETH',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0x2170ed0880ac9a755fd29b2688956bd959f933f8',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.PLS,
-  //   quoteTokenAdresses: contracts.wpls,
-  // },
+  
   // {
   //   pid: 6,
   //   risk: 1,
@@ -128,24 +224,7 @@ const farms: FarmConfig[] = [
   //   quoteTokenSymbol: QuoteToken.DAI,
   //   quoteTokenAdresses: contracts.dai,
   // },
-  // {
-  //   pid: 7,
-  //   risk: 1,
-  //   lpSymbol: 'USDC-DAI LP',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x680dd100e4b394bda26a59dd5c119a391e747d18',
-  //     369: ''
-  //   },
-  //   tokenSymbol: 'USDC',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0x8ac76a51cc950d9822d68b83fe1ad97b32cd580d',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.DAI,
-  //   quoteTokenAdresses: contracts.dai,
-  // },
+  
   // {
   //   pid: 9,
   //   risk: 3,
@@ -164,61 +243,9 @@ const farms: FarmConfig[] = [
   //   quoteTokenSymbol: QuoteToken.PLS,
   //   quoteTokenAdresses: contracts.wpls,
   // },
-  // {
-  //   pid: 10,
-  //   risk: 4,
-  //   lpSymbol: 'CARROT-DAI LP',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x0ed8e0a2d99643e1e65cca22ed4424090b8b7458',
-  //     369: ''
-  //   },
-  //   tokenSymbol: 'CARROT',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.DAI,
-  //   quoteTokenAdresses: contracts.dai,
-  // },
-  // {
-  //   pid: 11,
-  //   risk: 4,
-  //   lpSymbol: 'CARROT-PLS LP',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0xa527a61703d82139f8a06bc30097cc9caa2df5a6',
-  //     369: ''
-  //   },
-  //   tokenSymbol: 'CARROT',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0x0e09fabb73bd3ade0a17ecc321fd13a19e81ce82',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.PLS,
-  //   quoteTokenAdresses: contracts.wpls,
-  // },
-  // {
-  //   pid: 12,
-  //   risk: 5,
-  //   isTokenOnly: true,
-  //   lpSymbol: 'CARROT',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x19e7cbecdd23a16dfa5573df54d98f7caae03019',
-  //     369: '' // CARROT-DAI LP
-  //   },
-  //   tokenSymbol: 'CARROT',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.DAI,
-  //   quoteTokenAdresses: contracts.dai,
-  // },
+ 
+  
+ 
   // {
   //   pid: 13,
   //   risk: 1,

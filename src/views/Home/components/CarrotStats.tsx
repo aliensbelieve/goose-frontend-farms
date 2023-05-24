@@ -45,19 +45,19 @@ const CarrotStats = () => {
         </Heading>
         <Row>
           <Text fontSize="14px">{TranslateString(10005, 'Market Cap')}</Text>
-          <CardValue fontSize="14px" value={getBalanceNumber(marketCap)} decimals={0} prefix="$" />
+          <CardValue fontSize="14px" value={parseFloat(getBalanceNumber(marketCap))} decimals={0} prefix="$" />
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(536, 'Total Minted')}</Text>
-          {totalSupply && <CardValue fontSize="14px" value={getBalanceNumber(totalSupply)} decimals={0} />}
+          {totalSupply && <CardValue fontSize="14px" value={parseFloat(getBalanceNumber(totalSupply))} decimals={0} />}
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(538, 'Total Burned')}</Text>
-          <CardValue fontSize="14px" value={getBalanceNumber(burnedBalance)} decimals={0} />
+          <CardValue fontSize="14px" value={parseFloat(getBalanceNumber(burnedBalance))} decimals={0} />
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(10004, 'Circulating Supply')}</Text>
-          {circSupply && <CardValue fontSize="14px" value={getBalanceNumber(circSupply)} decimals={0} />}
+          {circSupply && <CardValue fontSize="14px" value={parseFloat(getBalanceNumber(circSupply))} decimals={0} />}
         </Row>
         <Row>
           <Text fontSize="14px">{TranslateString(540, 'New CARROT/second')}</Text>

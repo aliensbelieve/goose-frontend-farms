@@ -81,7 +81,7 @@ const FarmedStakingCard = () => {
         <Actions>
           <Button
             id="dashboard-collect-winnings"
-            disabled={getBalanceNumber(claimAmount) === 0 || requesteClaim}
+            disabled={parseFloat(getBalanceNumber(claimAmount)) === 0 || requesteClaim}
             onClick={handleClaim}
             style={{ marginRight: '8px' }}
           >

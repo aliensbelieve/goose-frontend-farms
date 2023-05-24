@@ -80,7 +80,7 @@ const FarmedStakingCard = () => {
         <Block>
           <Label>{TranslateString(546, 'CARROT in Wallet')}</Label>
           <CarrotWalletBalance carrotBalance={carrotBalance} />
-          <Label>~${(carrotPrice * carrotBalance).toFixed(2)}</Label>
+          <Label>~${(carrotPrice * parseFloat(carrotBalance)).toFixed(2)}</Label>
         </Block>
         <Actions>
           {account ? (

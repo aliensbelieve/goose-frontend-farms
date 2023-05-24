@@ -30,11 +30,11 @@ const YourPrizesCard: React.FC = () => {
   const { claimAmount } = useTotalClaim()
 
   const winnings = getBalanceNumber(claimAmount)
-  const isAWin = winnings > 0
+  // const isAWin = winnings > 0
 
   return (
-    <StyledCard isDisabled={!isAWin} isActive={isAWin}>
-      <CardBody>{isAWin ? <PrizesWonContent /> : <NoPrizesContent />}</CardBody>
+    <StyledCard>
+      {/* <CardBody>{isAWin ? <PrizesWonContent /> : <NoPrizesContent />}</CardBody> */}
     </StyledCard>
   )
 }

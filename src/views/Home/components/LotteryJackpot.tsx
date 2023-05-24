@@ -8,7 +8,7 @@ const LotteryJackpot = () => {
 
   return (
     <Text bold fontSize="24px">
-      {getBalanceNumber(lotteryPrizeAmount).toLocaleString(undefined, {
+      {parseFloat(getBalanceNumber(lotteryPrizeAmount)).toLocaleString(undefined, {
         maximumFractionDigits: 2,
       })}
     </Text>

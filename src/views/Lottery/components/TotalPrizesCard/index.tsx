@@ -52,8 +52,8 @@ const TotalPrizesCard = () => {
   const TranslateString = useI18n()
   const { account } = useWallet()
   const [showFooter, setShowFooter] = useState(false)
-  const lotteryPrizeAmount = +getBalanceNumber(useTotalRewards()).toFixed(0)
-  const lotteryPrizeWithCommaSeparators = lotteryPrizeAmount.toLocaleString()
+  // const lotteryPrizeAmount = +getBalanceNumber(useTotalRewards()).toFixed(0)
+  // const lotteryPrizeWithCommaSeparators = lotteryPrizeAmount.toLocaleString()
   const { currentLotteryNumber } = useContext(PastLotteryDataContext)
 
   return (
@@ -78,7 +78,7 @@ const TotalPrizesCard = () => {
               <Text fontSize="14px" color="textSubtle">
                 {TranslateString(999, 'Total Pot:')}
               </Text>
-              <Heading size="lg">{lotteryPrizeWithCommaSeparators} CARROT</Heading>
+              {/* <Heading size="lg">{lotteryPrizeWithCommaSeparators} CARROT</Heading> */}
             </PrizeCountWrapper>
           </Left>
           <Right>
@@ -88,7 +88,7 @@ const TotalPrizesCard = () => {
       </CardBody>
       <ExpandingWrapper showFooter={showFooter}>
         <CardFooter>
-          <PrizeGrid lotteryPrizeAmount={lotteryPrizeAmount} />
+          {/* <PrizeGrid lotteryPrizeAmount={lotteryPrizeAmount} /> */}
         </CardFooter>
       </ExpandingWrapper>
     </Card>
