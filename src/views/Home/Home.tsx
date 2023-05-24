@@ -69,7 +69,7 @@ const Home: React.FC = () => {
         <Text>$CARROT emissions begin at exactly:</Text>
         <Text>5/25/2023 03:00:00 AM UTC / 1684983600</Text>
         <Flex justifyContent="center">
-        <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A">
+        <Link href="https://www.epochconverter.com/countdown?q=1684983600">
           <Text>Countdown to Emissions Start</Text>
         </Link>
         </Flex>
