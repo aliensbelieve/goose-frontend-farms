@@ -99,8 +99,9 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
           TranslateString(320, 'Stake LP tokens to earn CARROT')
         }
         <Text>Farms are open for staking.</Text>
-        <Text>$CARROT emissions begin:</Text>
-        <Text>Immediately after the presale concludes at ~1:30 AM UTC 5/24/2023</Text>
+        <Text>Presale is completed!  Thank you all!</Text>
+        <Text>$CARROT emissions begin at exactly:</Text>
+        <Text>5/25/2023 03:00:00 AM UTC / 1684983600</Text>
         <Flex justifyContent="center">
         <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A">
           <Text>Countdown to Emissions Start</Text>

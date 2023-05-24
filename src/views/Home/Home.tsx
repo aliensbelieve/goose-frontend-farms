@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { Heading, Text, BaseLayout, Link } from '@pancakeswap-libs/uikit'
+import { Heading, Text, BaseLayout, Link, Flex } from '@pancakeswap-libs/uikit'
 import useI18n from 'hooks/useI18n'
 import Page from 'components/layout/Page'
 import FarmStakingCard from './components/FarmStakingCard'
@@ -65,9 +65,14 @@ const Home: React.FC = () => {
         {/* <Text>{TranslateString(578, 'A positively wonderful yield farming experience on PulseChain')}</Text> */}
         <Text>Exchange is live for swapping and adding liquidity.</Text>
         <Text>Farms are open for staking.</Text>
-        <Text>$CARROT emissions begin:</Text>
-        <Text>Immediately after the presale concludes at ~1:30 AM UTC 5/24/2023</Text>
-        <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A"><Text>Countdown to Emissions Start</Text></Link>
+        <Text>Presale is completed!  Thank you all!</Text>
+        <Text>$CARROT emissions begin at exactly:</Text>
+        <Text>5/25/2023 03:00:00 AM UTC / 1684983600</Text>
+        <Flex justifyContent="center">
+        <Link href="https://www.timeanddate.com/countdown/generic?hour=1&min=30&p0=%3A">
+          <Text>Countdown to Emissions Start</Text>
+        </Link>
+        </Flex>
       </Hero>
       <div>
         <Cards>
