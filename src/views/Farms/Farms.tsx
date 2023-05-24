@@ -57,8 +57,8 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
         // if (!farm.tokenAmount || !farm.lpTotalInQuoteToken || !farm.lpTotalInQuoteToken) {
         //   return farm
         // }
-        const carrotRewardPerBlock = new BigNumber(farm.carrotPerSecond || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
-        const carrotRewardPerYear = carrotRewardPerBlock.times(SECONDS_PER_YEAR)
+        const carrotRewardPerSecond = new BigNumber(farm.carrotPerSecond || 1).times(new BigNumber(farm.poolWeight)) .div(new BigNumber(10).pow(18))
+        const carrotRewardPerYear = carrotRewardPerSecond.times(SECONDS_PER_YEAR)
 
         let apy = carrotPrice.times(carrotRewardPerYear);
 
