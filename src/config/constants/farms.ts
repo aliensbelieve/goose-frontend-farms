@@ -37,25 +37,7 @@ const farms: FarmConfig[] = [
     },
     quoteTokenSymbol: QuoteToken.PLS,
     quoteTokenAdresses: contracts.wpls,
-  },
-  {
-    pid: 2,
-    risk: 3,
-    lpSymbol: 'PLS-DAI LP',
-    lpAddresses: {
-      97: '',
-      56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
-      369: '0xbbe6fbD141A593af6FfD8c7f492906F0D9E99b97'
-    },
-    tokenSymbol: 'PLS',
-    tokenAddresses: {
-      97: '',
-      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
-      369: '0xA1077a294dDE1B09bB078844df40758a5D0f9a27'
-    },
-    quoteTokenSymbol: QuoteToken.DAI,
-    quoteTokenAdresses: contracts.dai,
-  },
+  }, 
   {
     pid: 3,
     risk: 5,
@@ -110,9 +92,24 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.CARROT,
     quoteTokenAdresses: contracts.carrot,
   },
-  
-  
-
+  {
+    pid: 2,
+    risk: 3,
+    lpSymbol: 'PLS-DAI LP',
+    lpAddresses: {
+      97: '',
+      56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
+      369: '0xbbe6fbD141A593af6FfD8c7f492906F0D9E99b97'
+    },
+    tokenSymbol: 'PLS',
+    tokenAddresses: {
+      97: '',
+      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      369: '0xA1077a294dDE1B09bB078844df40758a5D0f9a27'
+    },
+    quoteTokenSymbol: QuoteToken.DAI,
+    quoteTokenAdresses: contracts.dai,
+  },
    {
     pid: 6,
     risk: 4,
