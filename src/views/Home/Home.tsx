@@ -62,17 +62,7 @@ const Home: React.FC = () => {
         <Heading as="h1" size="xl" mb="24px" color="secondary">
           {TranslateString(576, 'BunnySwap')}
         </Heading>
-        {/* <Text>{TranslateString(578, 'A positively wonderful yield farming experience on PulseChain')}</Text> */}
-        <Text>Exchange is live for swapping and adding liquidity.</Text>
-        <Text>Farms are open for staking.</Text>
-        <Text>Presale is completed!  Thank you all!</Text>
-        <Text>$CARROT emissions begin at exactly:</Text>
-        <Text>5/25/2023 03:00:00 AM UTC / 1684983600</Text>
-        <Flex justifyContent="center">
-        <Link href="https://www.epochconverter.com/countdown?q=1684983600">
-          <Text>Countdown to Emissions Start</Text>
-        </Link>
-        </Flex>
+        <Text>{TranslateString(578, 'A positively wonderful yield farming experience on PulseChain')}</Text>        
       </Hero>
       <div>
         <Cards>
