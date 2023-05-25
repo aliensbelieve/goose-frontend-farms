@@ -58,7 +58,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 3,
-    risk: 4,
+    risk: 5,
     lpSymbol: 'CARROT-ETH LP',
     lpAddresses: {
       97: '',
@@ -76,7 +76,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 4,
-    risk: 4,
+    risk: 5,
     lpSymbol: 'CARROT-USDC LP',
     lpAddresses: {
       97: '',
@@ -94,7 +94,7 @@ const farms: FarmConfig[] = [
   },
   {
     pid: 5,
-    risk: 4,
+    risk: 5,
     lpSymbol: 'CARROT-USDT LP',
     lpAddresses: {
       97: '',
