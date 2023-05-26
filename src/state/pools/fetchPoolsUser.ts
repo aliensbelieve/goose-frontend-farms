@@ -13,8 +13,8 @@ const CHAIN_ID = process.env.REACT_APP_CHAIN_ID
 
 // Pool 0, Carrot / Carrot is a different kind of contract (master chef)
 // PLS pools use the native PLS token (wrapping ? unwrapping is done at the contract level)
-const nonPlsPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.PLS)
-const plsPools = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.PLS)
+const nonPlsPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.WPLS)
+const plsPools = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.WPLS)
 const nonMasterPools = poolsConfig.filter((p) => p.sousId !== 0)
 const web3 = getWeb3()
 const masterChefContract = new web3.eth.Contract((masterChefABI as unknown) as AbiItem, getMasterChefAddress())

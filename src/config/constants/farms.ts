@@ -23,7 +23,7 @@ const farms: FarmConfig[] = [
   {
     pid: 1,
     risk: 5,
-    lpSymbol: 'CARROT-PLS LP',
+    lpSymbol: 'CARROT-WPLS LP',
     lpAddresses: {
       97: '',
       56: '0xd1b59d11316e87c3a0a069e80f590ba35cd8d8d3',
@@ -35,7 +35,7 @@ const farms: FarmConfig[] = [
       56: '0xf952fc3ca7325cc27d15885d37117676d25bfda6',
       369: '0x1F0FF02C26EF3f02E77C2F446405a089C40E5E6c'
     },
-    quoteTokenSymbol: QuoteToken.PLS,
+    quoteTokenSymbol: QuoteToken.WPLS,
     quoteTokenAdresses: contracts.wpls,
   }, 
   {
@@ -95,7 +95,7 @@ const farms: FarmConfig[] = [
   {
     pid: 2,
     risk: 3,
-    lpSymbol: 'PLS-DAI LP',
+    lpSymbol: 'WPLS-DAI LP',
     lpAddresses: {
       97: '',
       56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
@@ -184,6 +184,44 @@ const farms: FarmConfig[] = [
     quoteTokenSymbol: QuoteToken.DAI,
     quoteTokenAdresses: contracts.dai,
   },
+  {
+    pid: 10,
+    risk: 3,
+    isTokenOnly: true,
+    lpSymbol: 'WPLS',
+    lpAddresses: {
+      97: '',
+      56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
+      369: '0xbbe6fbD141A593af6FfD8c7f492906F0D9E99b97' // PLS-DAI LP
+    },
+    tokenSymbol: 'WPLS',
+    tokenAddresses: {
+      97: '',
+      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      369: '0xA1077a294dDE1B09bB078844df40758a5D0f9a27'
+    },
+    quoteTokenSymbol: QuoteToken.DAI,
+    quoteTokenAdresses: contracts.dai,
+  },
+  {
+    pid: 11,
+    risk: 3,
+    isTokenOnly: true,
+    lpSymbol: 'PLSX',
+    lpAddresses: {
+      97: '',
+      56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
+      369: '0xd4a30E7612B82152E1674f170149433Cfc2E2F9a' // PLSX-PLS LP
+    },
+    tokenSymbol: 'PLSX',
+    tokenAddresses: {
+      97: '',
+      56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
+      369: '0x95B303987A60C71504D99Aa1b13B4DA07b0790ab'
+    },
+    quoteTokenSymbol: QuoteToken.WPLS,
+    quoteTokenAdresses: contracts.wpls,
+  },
   // {
   //   pid: 4,
   //   risk: 2,
@@ -199,7 +237,7 @@ const farms: FarmConfig[] = [
   //     56: '0x7130d2a12b9bcbfae4f2634d864a1ee1ce3ead9c',
   //     369: ''
   //   },
-  //   quoteTokenSymbol: QuoteToken.PLS,
+  //   quoteTokenSymbol: QuoteToken.WPLS,
   //   quoteTokenAdresses: contracts.wpls,
   // },
   
@@ -237,7 +275,7 @@ const farms: FarmConfig[] = [
   //     56: '0x7083609fce4d1d8dc0c979aab8c869ea2c873402',
   //     369: ''
   //   },
-  //   quoteTokenSymbol: QuoteToken.PLS,
+  //   quoteTokenSymbol: QuoteToken.WPLS,
   //   quoteTokenAdresses: contracts.wpls,
   // },
  
@@ -263,24 +301,7 @@ const farms: FarmConfig[] = [
   //   quoteTokenAdresses: contracts.dai,
   // },
   // {
-  //   pid: 14,
-  //   risk: 3,
-  //   isTokenOnly: true,
-  //   lpSymbol: 'WPLS',
-  //   lpAddresses: {
-  //     97: '',
-  //     56: '0x1b96b92314c44b159149f7e0303511fb2fc4774f',
-  //     369: '' // PLS-DAI LP
-  //   },
-  //   tokenSymbol: 'WPLS',
-  //   tokenAddresses: {
-  //     97: '',
-  //     56: '0xbb4cdb9cbd36b01bd1cbaebf2de08d9173bc095c',
-  //     369: ''
-  //   },
-  //   quoteTokenSymbol: QuoteToken.DAI,
-  //   quoteTokenAdresses: contracts.dai,
-  // },
+  
   // {
   //   pid: 15,
   //   risk: 1,
@@ -449,7 +470,7 @@ const farms: FarmConfig[] = [
   //     56: '0xa184088a740c695e156f91f5cc086a06bb78b827',
   //     369: ''
   //   },
-  //   quoteTokenSymbol: QuoteToken.PLS,
+  //   quoteTokenSymbol: QuoteToken.WPLS,
   //   quoteTokenAdresses: contracts.wpls,
   // },
 ]

@@ -64,7 +64,7 @@ const Farms: React.FC<FarmsProps> = (farmsProps) => {
 
         let totalValue = new BigNumber(farm.lpTotalInQuoteToken || 0);
 
-        if (farm.quoteTokenSymbol === QuoteToken.PLS) {
+        if (farm.quoteTokenSymbol === QuoteToken.WPLS) {
           totalValue = totalValue.times(plsPrice);
         }
 

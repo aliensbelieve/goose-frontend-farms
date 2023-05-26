@@ -97,7 +97,7 @@ export const useTotalValue = (): BigNumber => {
     const farm = farms[i]
     if (farm.lpTotalInQuoteToken) {
       let val;
-      if (farm.quoteTokenSymbol === QuoteToken.PLS) {
+      if (farm.quoteTokenSymbol === QuoteToken.WPLS) {
         val = (plsPrice.times(farm.lpTotalInQuoteToken));
       }else if (farm.quoteTokenSymbol === QuoteToken.CARROT) {
         val = (carrotPrice.times(farm.lpTotalInQuoteToken));

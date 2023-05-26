@@ -103,7 +103,7 @@ const FarmCard: React.FC<FarmCardProps> = ({ farm, removed, carrotPrice, plsPric
     if (!farm.lpTotalInQuoteToken) {
       return null
     }
-    if (farm.quoteTokenSymbol === QuoteToken.PLS) {
+    if (farm.quoteTokenSymbol === QuoteToken.WPLS) {
       return plsPrice.times(farm.lpTotalInQuoteToken)
     }
     if (farm.quoteTokenSymbol === QuoteToken.CARROT) {

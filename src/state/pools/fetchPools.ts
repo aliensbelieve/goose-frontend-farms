@@ -39,8 +39,8 @@ export const fetchPoolsBlockLimits = async () => {
 }
 
 export const fetchPoolsTotalStatking = async () => {
-  const nonPlsPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.PLS)
-  const plsPool = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.PLS)
+  const nonPlsPools = poolsConfig.filter((p) => p.stakingTokenName !== QuoteToken.WPLS)
+  const plsPool = poolsConfig.filter((p) => p.stakingTokenName === QuoteToken.WPLS)
 
   const callsNonPlsPools = nonPlsPools.map((poolConfig) => {
     return {

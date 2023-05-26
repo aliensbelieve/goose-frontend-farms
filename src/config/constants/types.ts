@@ -20,7 +20,7 @@ export interface Ifo {
 }
 
 export enum QuoteToken {
-  'PLS' = 'PLS',
+  'WPLS' = 'WPLS',
   'CARROT' = 'CARROT',
   'SYRUP' = 'SYRUP',
   'DAI' = 'DAI',
